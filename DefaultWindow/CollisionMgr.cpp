@@ -15,28 +15,7 @@ CCollisionMgr::~CCollisionMgr()
 {
 }
 
-//void CCollisionMgr::Collision_Rect(list<CObj*> Dst, list<CObj*> Src)
-//{
-//	// 1인자 : 결과 값을 저장할 렉트의 주소
-//	// 2, 3인자 : 충돌을 수행할 렉트의 주소
-//	//SRC가 캐릭터 넣기
-//	RECT	rc{};
-//
-//	for (auto& DstList : Dst)
-//	{
-//		for (auto& SrcList : Src)
-//		{
-//			if (IntersectRect(&rc, &(DstList->Get_Rect()), &(SrcList->Get_Rect())))
-//			{
-//				DstList->Set_Dead();
-//				SrcList->Set_Dead();
-//			}
-//		}
-//	}
-//
-//
-//}
-//스킬 , 캐릭
+//몬스터 리스트, 불렛 리스트의 콜라이더를 비굑하여 충돌 체크를 한다.
 void CCollisionMgr::Collision_Rect(list<CObj*> DstList, list<CObj*> SrcList)
 {
 	float fX = 0.f, fY = 0.f;
@@ -54,6 +33,7 @@ void CCollisionMgr::Collision_Rect(list<CObj*> DstList, list<CObj*> SrcList)
 		}
 	}
 }
+//UI 충돌을 
 void CCollisionMgr::Collision_UIRect(list<CObj*> DstList, list<CObj*> SrcList)
 {
 	float fX = 0.f, fY = 0.f;
@@ -114,6 +94,8 @@ void CCollisionMgr::Collision_FireRect(list<CObj*> DstList, list<CObj*> SrcList)
 		}
 	}
 }
+
+//몬스터 또는 플레이어가 벽과 충돌하면 더는 진행하지 못하게 하는 출돌 함수
 void CCollisionMgr::Collision_RectEx(list<CObj*> DstList, list<CObj*> SrcList)
 {
 	float fX = 0.f, fY = 0.f;
